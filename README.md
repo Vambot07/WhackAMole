@@ -16,7 +16,6 @@ Whack-A-Mole is a fun and interactive game where you have to "whack" the moles t
    ```bash
    git clone https://github.com/your-username/whack-a-mole.git
 
-
 3. Open the project folder:
    ```bash
    cd whack-a-mole
