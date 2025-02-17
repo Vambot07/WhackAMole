@@ -1,0 +1,152 @@
+*{
+     margin :0;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(58, 129, 0);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.title{
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.score{
+    font-size: 2em;
+    margin-bottom: .5em;
+}
+
+.btn-start {
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: aqua;
+    position: fixed; /* Keeps the button visible at the top even when scrolling */
+    top: 60px;      /* 20px from the top of the page */
+    left: 90%;      /* Positions the button at the center horizontally */
+    transform: translateX(-50%); /* Ensures the button is exactly centered */
+    display: flex;  /* Center the content inside the button */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-start:hover {
+    background-color: #00ced1; /* Change color on hover */
+    transform: translate(-50%, -5px); /* Lift effect on hover */
+}
+
+.btn-start:active {
+    transform: translate(-50%, 0); /* Return to normal position when clicked */
+}
+
+
+.btn-pause{
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: aqua;
+    position: fixed; /* Keeps the button visible at the top even when scrolling */
+    top: 60px;      /* 20px from the top of the page */
+    left: 75%;      /* Positions the button at the center horizontally */
+    transform: translateX(-50%); /* Ensures the button is exactly centered */
+    display: none;  /* Center the content inside the button */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+   
+}
+
+
+.btn-pause:hover {
+
+    background-color: #00ced1; /* Change color on hover */
+    transform: translate(-50%, -5px); /* Lift effect on hover */
+}
+
+.btn-pause:active {
+    transform: translate(-50%, 0); /* Return to normal position when clicked */
+}
+
+
+
+.container{
+    display: flex;
+}
+
+.board{
+    height: 600px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 80px;
+    
+    
+}
+
+
+.hole{
+    background-color: rgb(165, 85, 11);
+    border-radius: 50%;
+    box-shadow: inset 0 10px 0px 7px rgb(53, 21, 6), 
+                inset 0 20px 20px 15px rgba(31, 4, 4, 0.3),
+                0 0 5px rgba(27, 11, 11, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.hole .mole{
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom:0;
+    animation: rise .3s ease-out;
+}
+@keyframes rise {
+    0%{
+        transform: translateX(-50%) translateY(100%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.cursor{
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image: url(../assets/hammer.png);
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%);
+    transition: transform .1s;
+    pointer-events: none;
+}
+
+
+
+.cursor.active{
+    transform: translate(-20%, -20%) rotate(-45deg);
+
+}
